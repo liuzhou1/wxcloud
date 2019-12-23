@@ -1,0 +1,20 @@
+{
+  "pages": [
+
+
+    "pages/detail/detail",
+    "pages/databaseGuide/databaseGuide",
+    "pages/LEBindex/index"
+
+    
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "数据库操作测试",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

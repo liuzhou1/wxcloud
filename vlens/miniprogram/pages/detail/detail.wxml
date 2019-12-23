@@ -1,0 +1,111 @@
+<view>
+  <view class="connect_box" >
+    <text class='connect_device_name'>{{deviceName}}</text>
+    <text wx:if="{{connect}}" class="connect_state" catchtap="DisConnectTap">已连接</text>
+    <text wx:else class="connect_state" bindtap="goBack">未连接</text>
+  </view>
+  <view class="content-box">
+    <view class="content-name">
+      <view class="content-name-shu"></view>
+      <view class="content-name-text">开关</view>
+      <switch bindchange="switch1Change" class='key' class="fr" style="margin-top: -8rpx;" />
+    </view>
+  </view>
+  <view class="content-box">
+    <view class="content-name">
+      <view class="content-name-shu"></view>
+      <view class="content-name-text">常用光</view>
+      <view class='deleteColor' bindtap="deleteColorHint">删除</view>
+    </view>
+    <view class="input-box">
+      <view class="icon-content">
+        <view class="main-icon"  wx:for="{{items}}" id="{{index}}" wx:for-item="item" bind:longtap="deleteColor">
+          <view class="select-color" style="background: {{item.color}}"></view>
+          <text>{{item.name}}</text>
+        </view>
+        <view style="clear:both;"></view>
+      </view>
+    </view>
+  </view>
+
+  <view class="content-box">
+    <view class="content-name">
+      <view class="content-name-shu"></view>
+      <view class="content-name-text">色彩选择</view>
+      <view class='addColor' bindtap="addColor">添加</view>
+    </view>
+    <view class="input-box">
+      <view class="section section_gap">
+        <text class="section__title">R</text>
+        <view class="body-view">
+          <slider bindchange="sliderchange" id="slider1" value="{{slider1}}" show-value max="255"/>
+        </view>
+      </view>
+      <view class="section section_gap">
+        <text class="section__title">G</text>
+        <view class="body-view">
+          <slider bindchange="sliderchange" id="slider2" value="{{slider2}}" show-value max="255"/>
+        </view>
+      </view>
+      <view class="section section_gap">
+        <text class="section__title">B</text>
+        <view class="body-view">
+          <slider bindchange="sliderchange" id="slider3" value="{{slider3}}" show-value max="255"/>
+        </view>
+      </view>
+      <view class="section section_gap">
+        <text class="section__title">W</text>
+        <view class="body-view">
+          <slider bindchange="sliderchange" id="slider4" value="{{slider4}}" show-value max="255"/>
+        </view>
+      </view>
+    </view>
+  </view>
+
+ <view class="content-box">
+    <view class="content-name">
+      <view class="content-name-shu"></view>
+      <view class="content-name-text">调光</view>
+    </view>
+    <view class="input-box">
+      <view class="section section_gap">
+        <view class="body-view" style="width:100%;">
+          <slider bindchange="sliderchange" id="slider5" show-value value="{{slider5}}" max="100"/>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="content-box" style="margin-bottom:40rpx;border:none;">
+    <view class="content-name">
+      <view class="content-name-shu"></view>
+      <view class="content-name-text">定时开关</view>
+    </view>
+    <view class="input-box">
+     <picker class="time" mode="time" value="{{startTime}}" bindchange="startTimeChange">
+    <view class="picker">
+     {{startTime}}
+    </view>
+  </picker> ~
+  <picker class="time" mode="time" value="{{endTime}}" bindchange="endTimeChange">
+    <view class="picker">
+       {{endTime}}
+    </view>
+  </picker> 
+    </view>
+  </view>
+
+  <view class="hint-box" wx:if="{{addColorType}}">
+    <view class="hint-content" >
+      灯光名称：<input type="text" class="hint-input" />
+      <view class="hint-operation">
+        <button class="btn" type="primary" size="mini" bindtap="onTap">
+         取消
+        </button>
+        <button class="btn" type="primary" size="mini" bindtap="onTap1">
+         确认
+        </button>
+      </view>
+    </view>
+  </view>
+</view>
